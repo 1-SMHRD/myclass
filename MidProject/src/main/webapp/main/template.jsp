@@ -47,7 +47,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">Logo</a>
+      <a class="navbar-brand" href="#"><img id="logoImg" src="img/logo.gif" /></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -66,11 +66,14 @@
 
 <!-- 메인 페이지에서 상단 메뉴바를 클릭 또는 자세한 정보(여행지, 숙소) 클릭 시 변하는 영역 -->
 <body>
+<!-- 메뉴바 하단 carousel 영역
+이벤트 or 축제 이미지 등 삽입 -->
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
     </ol>
 
     <!-- Wrapper for slides -->
@@ -90,6 +93,14 @@
           <p>Lorem ipsum...</p>
         </div>      
       </div>
+      
+      <div class="item">
+        <img src="https://placehold.it/1200x400?text=Another Image Maybe" alt="Image">
+        <div class="carousel-caption">
+          <h3>More more Sell $</h3>
+          <p>Lorem ipsum...</p>
+        </div>      
+      </div>
     </div>
 
     <!-- Left and right controls -->
@@ -102,9 +113,13 @@
       <span class="sr-only">Next</span>
     </a>
 </div>
-  
-<div class="container text-center">    
-  <h3>What We Do</h3><br>
+ 
+<!-- 인기 여행지, 인기 맛집 TOP10 정도 구현 영역
+향후 인기 숙소, 인기 SNS글 등 추가 예정 -->
+<!-- 인기 여행지 TOP10 정도 구현 영역
+이미지 or 간략 정보 클릭시 해당 여행지 자세한 정보페이지로 이동 -->
+<div class="container text-left">    
+  <h4>인기여행지</h4><br>
   <div class="row">
     <div class="col-sm-4">
       <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
@@ -118,17 +133,34 @@
       <div class="well">
        <p>Some text..</p>
       </div>
+ 	</div>
+ </div>
+</div>
+<!-- 인기 맛집 TOP10 정도 구현 영역
+이미지 or 간략 정보 클릭시 해당 맛집 자세한 정보페이지로 이동 -->
+<div class="container text-left">    
+  <h4>인기숙소</h4><br>
+  <div class="row">
+    <div class="col-sm-4">
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+      <p>Current Project</p>
+    </div>
+    <div class="col-sm-4"> 
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+      <p>Project 2</p>    
+    </div>
+    <div class="col-sm-4">
       <div class="well">
        <p>Some text..</p>
       </div>
-    </div>
-  </div>
-</div><br>
+ 	</div>
+ </div>
+</div>><br>
 </body>
 
 <!-- 회사와 관련된 내용(회사소개, 이용약관, 개인정보처리방침 등)을 담당, 클릭시 해당 페이지로 이동, 변하지 않는 영역 -->
 <footer class="container-fluid text-center">
-  <p>Footer Text</p>
+  <p>팀 or 회사정보</p>
 </footer>
 
 </html>
