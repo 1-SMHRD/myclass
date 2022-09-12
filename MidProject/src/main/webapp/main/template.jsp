@@ -34,12 +34,23 @@
       display: none; 
     }
   }
+   /* Note: Try to remove the following lines to see the effect
+ of CSS positioning */
+  .affix {
+    top: 0;
+    width: 100%;
+    z-index: 9999 !important;
+  }
+
+  .affix + .container-fluid {
+    padding-top: 70px;
+  }
   </style>
 </head>
 
 <!-- 팀 로고, 메뉴바, 로그인/회원가입(마이페이지/로그아웃) 등 어느 페이지를 가더라도 변하지 않는 영역 -->
 <header>
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">>
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
