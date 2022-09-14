@@ -7,6 +7,10 @@
 }
 
 /* Add a gray background color and some padding to the footer */
+main {
+	padding: 600px;
+}
+/* Add a gray background color and some padding to the footer */
 footer {
 	background-color: #f2f2f2;
 	padding: 25px;
@@ -24,3 +28,13 @@ footer {
 		display: none;
 	}
 }
+
+  .affix {
+    top: 0;
+    width: 100%;
+    z-index: 9999 !important;
+  }
+
+  .affix + .container-fluid {
+    padding-top: 70px;
+  }
