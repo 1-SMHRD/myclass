@@ -9,64 +9,41 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <style>
-    /* Remove the navbar's default margin-bottom and rounded borders */ 
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
-    
-    /* Add a gray background color and some padding to the footer */
-    footer {
-      background-color: #f2f2f2;
-      padding: 25px;
-    }
-    
-  .carousel-inner img {
-      width: 100%; /* Set width to 100% */
-      margin: auto;
-      min-height:200px;
-  }
-
-  /* Hide the carousel text when the screen is less than 600 pixels wide */
-  @media (max-width: 600px) {
-    .carousel-caption {
-      display: none; 
-    }
-  }
-   /* Note: Try to remove the following lines to see the effect
- of CSS positioning */
-  .affix {
-    top: 0;
-    width: 100%;
-    z-index: 9999 !important;
-  }
-
-  .affix + .container-fluid {
-    padding-top: 70px;
-  }
-  </style>
+<link rel="stylesheet" href="./template.css">
 </head>
 
 <!-- 팀 로고, 메뉴바, 로그인/회원가입(마이페이지/로그아웃) 등 어느 페이지를 가더라도 변하지 않는 영역
 로고 클릭시 메인페이지로 이동 -->
 <header>
-<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">>
+<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="10">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+      <div>
+      <a class="navbar-brand" href="#"><img id="logoImg" width="72px" src="../img/logo.gif"/></a>
+      </div>
+      <button type="button" class="navbar-toggle btn-default" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#"><img id="logoImg" src="img/logo_re.png"/></a>
+      <!-- 검색창 -->
+      <div>
+      <form  id="searchBar" action="/action_page.php">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search" name="search">
+      <div class="input-group-btn">
+        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+      </div>
+    </div>
+  </form>
+      </div>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#" class="navtitle">Home</a></li>
+        <li><a href="#" class="navtitle">About</a></li>
+        <li><a href="#" class="navtitle">Projects</a></li>
+        <li><a href="#" class="navtitle">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
@@ -143,11 +120,12 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active">
-      <img src="la.jpg" alt="Chania">
+      <img src="la.jpg" width alt="Chania">
       <div class="carousel-caption">
         <h3>Los Angeles</h3>
         <p>LA is always so much fun!</p>
       </div>
+      
     </div>
 
     <div class="item">
@@ -225,7 +203,7 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-</div>><br>
+</div><br>
 </body>
 
 <!-- 회사와 관련된 내용(회사소개, 이용약관, 개인정보처리방침 등)을 담당, 클릭시 해당 페이지로 이동, 변하지 않는 영역 -->
