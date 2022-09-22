@@ -102,7 +102,7 @@
 					<!-- ACCOUNT -->
 					<div class="col-md-3 clearfix">
 						<div class="header-ctn">
-							<c:if test="${empty 회원정보}">
+							<c:if test="${empty mvo}">
 								<!-- Login -->
 								<div>
 									<a href="${cpath}/login.do"> <i class="fa fa-sign-in"></i>
@@ -119,13 +119,13 @@
 								</div>
 								<!-- /Sign Up -->
 							</c:if>
-							<c:if test="${!empty 회원정보}">
+							<c:if test="${!empty mvo}">
 								<!-- My Page -->
 								<div>
-									<a href="${cpath}/mypage.do"> <i class="fa fa-user"><label>${mvo.memName}님
-												환영합니다.</label></i> <span>마이페이지</span>
+									<a href="${cpath}/mypage.do"> <i class="fa fa-user"></i><span>마이페이지</span>
 									</a>
 								</div>
+								<div><label>${mvo.memName}님 환영합니다.</label></div>
 								<!-- /My Page -->
 
 								<!-- Logout -->
@@ -191,32 +191,19 @@
 				<c:forEach var="bl" items="${banner_list}">
 					<div class="item active">
 						<div class="img-write">
-							<h1 class="content">${bl.text} }</h1>
+							<h1 class="content">${bl.text}}</h1>
 						</div>
-						<img src="./img/bg002.png" style="width: 100%; height: auto" />
-					</div>
-
-					<div class="item">
-						<div class="img-write">
-							<h1 class="content">여기서뭐행과 함께라면 가능합니다!</h1>
-						</div>
-						<img src="./img/bg003.png" style="width: 100%; height: auto" />
+						<img src="${cpath}/img/${bl.imgAddr}"
+							style="width: 100%; height: auto" />
 					</div>
 				</c:forEach>
-				<div class="item">
-					<div class="img-write">
-						<h1 class="content">결코 후회하지 않을겁니다!</h1>
-					</div>
-					<img src="./img/bg004.png" style="width: 100%; height: auto" />
-				</div>
-
 			</div>
 
 			<!-- Left and right controls -->
 			<a class="left carousel-control" href="#myCarousel" data-slide="prev">
 				<span class="glyphicon glyphicon-chevron-left"></span> <span
 				class="sr-only">Previous</span>
-			</a> <a class="right carousel-control" href="#myCarousel"
+			</a><a class="right carousel-control" href="#myCarousel"
 				data-slide="next"> <span
 				class="glyphicon glyphicon-chevron-right"></span> <span
 				class="sr-only">Next</span>
@@ -246,125 +233,38 @@
 							<div id="tab1" class="tab-pane active">
 								<div class="products-slick" data-nav="#slick-nav-1">
 									<!-- product -->
-									<div class="product">
-										<div class="product-img">
-											<img src="./img/y001.png" alt="" />
-										</div>
-										<div class="product-body">
-											<h3 class="product-name">
-												<a href="#">여수 오동도</a>
-											</h3>
-											<div class="product-rating">
-												<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-													class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-													class="fa fa-star"></i>
+									<c:forEach var="vo" items="${listPlace}">
+										<div class="product">
+											<div class="product-img">
+												<img src="./img/y001.png" alt="" />
 											</div>
-											<div class="product-btns">
-												<button class="add-to-wishlist">
-													<i class="fa fa-heart-o"></i><span class="tooltipp">add
-														to wishlist</span>
-												</button>
-
+											<div class="product-body">
+												<h3 class="product-name">
+													<a href="#">${bl.title}</a>
+												</h3>
+												<div class="product-rating">
+													<c:forEach begin="1" end="5" step="1" var="i">
+														<c:choose>
+															<c:when test="${i<=bl.rating}">
+																<i class="fa fa-star"></i>
+															</c:when>
+															<c:otherwise>
+																<i class="fa fa-star-o"></i>
+															</c:otherwise>
+														</c:choose>
+													</c:forEach>
+												</div>
+												<div class="product-btns">
+													<button class="add-to-wishlist">
+														<i class="fa fa-heart-o"></i><span class="tooltipp">add
+															to wishlist</span>
+													</button>
+												</div>
 											</div>
 										</div>
-									</div>
+									</c:forEach>
 									<!-- /product -->
 
-									<!-- product -->
-									<div class="product">
-										<div class="product-img">
-											<img src="./img/y002.png" alt="" />
-										</div>
-										<div class="product-body">
-											<h3 class="product-name">
-												<a href="#">여수 돌산공원</a>
-											</h3>
-											<div class="product-rating">
-												<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-													class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-													class="fa fa-star-o"></i>
-											</div>
-											<div class="product-btns">
-												<button class="add-to-wishlist">
-													<i class="fa fa-heart-o"></i><span class="tooltipp">add
-														to wishlist</span>
-												</button>
-											</div>
-										</div>
-									</div>
-									<!-- /product -->
-
-									<!-- product -->
-									<div class="product">
-										<div class="product-img">
-											<img src="./img/y003.png" alt="" />
-										</div>
-										<div class="product-body">
-											<h3 class="product-name">
-												<a href="#">여수 영취산</a>
-											</h3>
-											<div class="product-rating">
-												<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-													class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i
-													class="fa fa-star-o"></i>
-											</div>
-											<div class="product-btns">
-												<button class="add-to-wishlist">
-													<i class="fa fa-heart-o"></i><span class="tooltipp">add
-														to wishlist</span>
-												</button>
-											</div>
-										</div>
-									</div>
-									<!-- /product -->
-
-									<!-- product -->
-									<div class="product">
-										<div class="product-img">
-											<img src="./img/y004.png" alt="" />
-										</div>
-										<div class="product-body">
-											<h3 class="product-name">
-												<a href="#">종포 해양공원</a>
-											</h3>
-											<div class="product-rating">
-												<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-													class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-													class="fa fa-star"></i>
-											</div>
-											<div class="product-btns">
-												<button class="add-to-wishlist">
-													<i class="fa fa-heart-o"></i><span class="tooltipp">add
-														to wishlist</span>
-												</button>
-											</div>
-										</div>
-									</div>
-									<!-- /product -->
-
-									<!-- product -->
-									<div class="product">
-										<div class="product-img">
-											<img src="./img/y005.png" alt="" />
-										</div>
-										<div class="product-body">
-											<h3 class="product-name">
-												<a href="#">여수 케이블카</a>
-											</h3>
-											<div class="product-rating">
-												<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-													class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-													class="fa fa-star"></i>
-											</div>
-											<div class="product-btns">
-												<button class="add-to-wishlist">
-													<i class="fa fa-heart-o"></i><span class="tooltipp">add
-														to wishlist</span>
-												</button>
-											</div>
-										</div>
-									</div>
-									<!-- /product -->
 								</div>
 								<div id="slick-nav-1" class="products-slick-nav"></div>
 							</div>
@@ -430,117 +330,6 @@
 									</div>
 									<!-- /product -->
 
-									<!-- product -->
-									<div class="product">
-										<div class="product-img">
-											<img src="./img/product07.png" alt="" />
-										</div>
-										<div class="product-body">
-											<p class="product-category">Category</p>
-											<h3 class="product-name">
-												<a href="#">product name goes here</a>
-											</h3>
-											<h4 class="product-price">
-												$980.00
-												<del class="product-old-price">$990.00</del>
-											</h4>
-											<div class="product-rating">
-												<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-													class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-													class="fa fa-star-o"></i>
-											</div>
-											<div class="product-btns">
-												<button class="add-to-wishlist">
-													<i class="fa fa-heart-o"></i><span class="tooltipp">add
-														to wishlist</span>
-												</button>
-											</div>
-										</div>
-									</div>
-									<!-- /product -->
-
-									<!-- product -->
-									<div class="product">
-										<div class="product-img">
-											<img src="./img/product08.png" alt="" />
-										</div>
-										<div class="product-body">
-											<p class="product-category">Category</p>
-											<h3 class="product-name">
-												<a href="#">product name goes here</a>
-											</h3>
-											<h4 class="product-price">
-												$980.00
-												<del class="product-old-price">$990.00</del>
-											</h4>
-											<div class="product-rating"></div>
-											<div class="product-btns">
-												<button class="add-to-wishlist">
-													<i class="fa fa-heart-o"></i><span class="tooltipp">add
-														to wishlist</span>
-												</button>
-											</div>
-										</div>
-									</div>
-									<!-- /product -->
-
-									<!-- product -->
-									<div class="product">
-										<div class="product-img">
-											<img src="./img/product09.png" alt="" />
-										</div>
-										<div class="product-body">
-											<p class="product-category">Category</p>
-											<h3 class="product-name">
-												<a href="#">product name goes here</a>
-											</h3>
-											<h4 class="product-price">
-												$980.00
-												<del class="product-old-price">$990.00</del>
-											</h4>
-											<div class="product-rating">
-												<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-													class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-													class="fa fa-star"></i>
-											</div>
-											<div class="product-btns">
-												<button class="add-to-wishlist">
-													<i class="fa fa-heart-o"></i><span class="tooltipp">add
-														to wishlist</span>
-												</button>
-											</div>
-										</div>
-									</div>
-									<!-- /product -->
-
-									<!-- product -->
-									<div class="product">
-										<div class="product-img">
-											<img src="./img/product01.png" alt="" />
-										</div>
-										<div class="product-body">
-											<p class="product-category">Category</p>
-											<h3 class="product-name">
-												<a href="#">product name goes here</a>
-											</h3>
-											<h4 class="product-price">
-												$980.00
-												<del class="product-old-price">$990.00</del>
-											</h4>
-											<div class="product-rating">
-												<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-													class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-													class="fa fa-star"></i>
-											</div>
-											<div class="product-btns">
-												<button class="add-to-wishlist">
-													<i class="fa fa-heart-o"></i><span class="tooltipp">add
-														to wishlist</span>
-												</button>
-											</div>
-										</div>
-									</div>
-									<!-- /product -->
 								</div>
 								<div id="slick-nav-2" class="products-slick-nav"></div>
 							</div>
