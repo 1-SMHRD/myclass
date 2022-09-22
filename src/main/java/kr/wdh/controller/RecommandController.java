@@ -27,7 +27,6 @@ public class RecommandController implements Controller {
 		
 		
 		
-		
 	
 		return "recommand.do";
 	}
