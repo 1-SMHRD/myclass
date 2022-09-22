@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.wdh.dao.YGSMHMapper">
+	<!-- 로그인하기  -->
+	<select id="memberLogin" 
+	parameterType="kr.wdh.dao.MemberVO" 
+	resultType="kr.wdh.dao.MemberVO">
+		select * from member_info where mem_Id=#{mem_Id} and mem_Pw=#{mem_Pw}
+	</select>
+	
+	
+	
+	<!-- 메인에서 활용할 숙소/ 여행지 10개 정보  -->
+	<select id="TempStayList_main" resultType="kr.wdh.dao.TempStayVO">
+		select * from temp_stay where rownum <![CDATA[ < ]]>= 10
+	</select>
+	<select id="TempPlaceList_main" resultType="kr.wdh.dao.TempPlaceVO">
+		select * from temp_Place where rownum <![CDATA[ < ]]>= 10
+	</select>
+	
+	<!-- 설정된 지역의  숙소/ 여행지 조회 -->
+	<select id="TempStayListByaddr2" parameterType="kr.wdh.dao.StayVO" resultType="kr.wdh.dao.TempStayVO">
+		select * from temp_stay where addr2 = #{addr2}
+		<!-- addr2 가  광역시 + 구  조합된 형태의  정보임 -->
+	</select>
+	<select id="TempPlaceListByaddr2" parameterType="kr.wdh.dao.StayVO" resultType="kr.wdh.dao.TempStayVO">
+		select * from temp_Place where addr2 = #{addr2}
+	</select>
+	
+	
+
+</mapper>
