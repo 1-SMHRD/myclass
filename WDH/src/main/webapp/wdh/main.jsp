@@ -105,7 +105,7 @@
 							<c:if test="${empty mvo}">
 								<!-- Login -->
 								<div>
-									<a href="${cpath}/login.do"> <i class="fa fa-sign-in"></i>
+									<a href="${cpath}/loginpage.do"> <i class="fa fa-sign-in"></i>
 										<span>로그인</span>
 									</a>
 								</div>
@@ -125,7 +125,7 @@
 									<a href="${cpath}/mypage.do"> <i class="fa fa-user"></i><span>마이페이지</span>
 									</a>
 								</div>
-								<div><label>${mvo.memName}님 환영합니다.</label></div>
+								<div><label>${mvo.mem_Id}님 환영합니다.</label></div>
 								<!-- /My Page -->
 
 								<!-- Logout -->

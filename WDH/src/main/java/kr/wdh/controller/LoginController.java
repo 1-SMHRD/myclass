@@ -17,8 +17,8 @@ public class LoginController implements Controller {
 		// TODO Auto-generated method stub
 		
 		//파라메터 수집(memId, memPwd)
-		String mem_Id= request.getParameter("mem_Id");
-		String mem_Pw= request.getParameter("mem_Pw");
+		String mem_Id= request.getParameter("in_mem_id");
+		String mem_Pw= request.getParameter("in_mem_pw");
 		MemberVO vo=new MemberVO();
 		
 		vo.setMem_Id(mem_Id);
@@ -31,9 +31,11 @@ public class LoginController implements Controller {
 			HttpSession session = request.getSession();
 			// 객체바인딩 > 모든 jsp가 회원인증을 알아야 하기 때문에 
 			session.setAttribute("mvo", mvo);
+			return "redirect:/main.do";
+		}else {
+			return "redirect:/signin";
 		}
 	
-		return "redirect:/main.do";
 	}
 	
 }

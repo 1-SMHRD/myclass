@@ -1,4 +1,4 @@
-package kr.wdh.dao;
+package kr.wdh.controller;
 
 public class MemberVO {
 	  private String mem_Id;
