@@ -36,7 +36,7 @@ public class SignupController implements Controller {
 		//mybatis와 연결해서  db에 정보 넣어주기
 		WDHMyBatisDAO dao=new WDHMyBatisDAO();
 		dao.signUp(vo);
-		return "main.do";
+		return "main";
 	}
 
 }

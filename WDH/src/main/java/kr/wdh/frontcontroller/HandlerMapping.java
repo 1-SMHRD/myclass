@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import kr.wdh.controller.Controller;
 import kr.wdh.controller.LoginController;
+import kr.wdh.controller.LoginPageController;
 import kr.wdh.controller.LogoutController;
 import kr.wdh.controller.MainController;
 import kr.wdh.controller.PlaceController;
@@ -29,6 +30,7 @@ import kr.wdh.controller.StayDatailController;
 
 		mappings.put("/main.do",new MainController());
 		mappings.put("/login.do",new LoginController());
+		mappings.put("/loginpage.do",new LoginPageController());
 		mappings.put("/logout.do",new LogoutController());
 		mappings.put("/signup.do",new SignupController());
 		mappings.put("/preference.do",new PreferenceController());
