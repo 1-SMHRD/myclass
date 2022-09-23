@@ -11,12 +11,17 @@
 	</select>
 	
 	
+		<!-- 회원가입시 인서트 -->
+	<insert id="signUp" parameterType="kr.wdh.dao.MemberVO">
+	 insert into member_info(mem_Id, mem_pw, mem_nick, mem_pohone, mem_joindate) values(#{mem_Id},#{mem_Pw},#{mem_nick},#{mem_pohone},sysdate) <!--  ? >> 파라메터 매겨변수를 #{}로 표시-->
+	</insert>
+	
 	
 	<!-- 메인에서 활용할 숙소/ 여행지 10개 정보  -->
 	<select id="TempStayList_main" resultType="kr.wdh.dao.TempStayVO">
 		select * from temp_stay where rownum <![CDATA[ < ]]>= 10
 	</select>
-	<select id="TempPlaceList_main" resultType="kr.wdh.dao.TempPlaceVO">
+	<select id="TempPlaceList_main" resultType="kr.wdh.dao.PlaceVO">
 		select * from temp_Place where rownum <![CDATA[ < ]]>= 10
 	</select>
 	

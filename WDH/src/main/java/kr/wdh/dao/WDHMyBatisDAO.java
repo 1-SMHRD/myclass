@@ -11,6 +11,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import kr.wdh.dao.MemberVO;
+
 public class WDHMyBatisDAO {
 	private static SqlSessionFactory sqlSessionFactory;
 	// database연결 >> config.xml과 MyBatis API연결
@@ -28,6 +30,13 @@ public class WDHMyBatisDAO {
 		
 	}
 	
+	//회원가입
+	public void signUp(MemberVO vo){
+		SqlSession session = sqlSessionFactory.openSession();
+		session.insert("signUp", vo); // >> 인서트를 메서드 이름으로
+		session.commit(); //인서트는 commit 필수임 
+		session.close();
+	}
 	
 	// 로그인
 		public MemberVO memberLogin(MemberVO vo){
