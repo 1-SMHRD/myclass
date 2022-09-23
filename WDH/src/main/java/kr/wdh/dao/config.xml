@@ -17,6 +17,6 @@
     </environment>
   </environments>
   <mappers>
-    <mapper resource="kr/yogiseoMohang/dao/YGSMHMapper.xml"/>
+    <mapper resource="kr/wdh/dao/WDHMapper.xml"/>
   </mappers>
 </configuration>
