@@ -236,7 +236,7 @@
 									<c:forEach var="vo" items="${listPlace}">
 										<div class="product">
 											<div class="product-img">
-												<img src="./img/y001.png" alt="" />
+												<img src="${cpath}/img/${pl.imgAddr}" alt="" />
 											</div>
 											<div class="product-body">
 												<h3 class="product-name">
@@ -304,12 +304,12 @@
 									<!-- product -->
 									<div class="product">
 										<div class="product-img">
-											<img src="./img/product06.png" alt="" />
+											<img src="${cpath}/img/${sl.imgAddr}" alt="" />
 										</div>
 										<div class="product-body">
 											<p class="product-category">Category</p>
 											<h3 class="product-name">
-												<a href="#">product name goes here</a>
+												<a href="#">${sl.title}</a>
 											</h3>
 											<h4 class="product-price">
 												$980.00
@@ -373,7 +373,18 @@
 							<ul class="footer-links">
 								<li><a href="#">My Account</a></li>
 								<li><a href="#">Wishlist</a></li>
-								<li><a href="#">Help</a></li>
+								<li><a href="#"></a></li>
+							</ul>
+						</div>
+					</div>
+					
+					<div class="col-md-3 col-xs-6">
+						<div class="footer">
+							<h3 class="footer-title">고객센터</h3>
+							<ul class="footer-links">
+								<li><a href="#">공지사항</a></li>
+								<li><a href="#">자주하는 질문</a></li>
+								<li><a href="#">문의하기</a></li>
 							</ul>
 						</div>
 					</div>

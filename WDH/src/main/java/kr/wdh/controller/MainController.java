@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 
 import kr.wdh.dao.MemberVO;
+import kr.wdh.dao.RankingVO;
 import kr.wdh.dao.StayVO;
 import kr.wdh.dao.TempStayVO;
 import kr.wdh.dao.WDHMyBatisDAO;
@@ -23,23 +24,10 @@ public class MainController implements Controller {
 	
 		
 		WDHMyBatisDAO dao =new WDHMyBatisDAO();
-		StayVO stay_vo= null;
-//		List<TempStayVO> temp_stay_vo_list = dao.TempstayList_main();
-//		
-//				
-//		request.setAttribute("stay_vo_list", temp_stay_vo_list);
-//		
-//		
-//		MemberVO vo=new MemberVO();
-		
-		
-		
-		
-		
-		
-		
-	
-		return "main.do";
+		List<RankingVO> list = dao.RakingList();
+
+		request.setAttribute("list", list);
+		return "main";
 	}
 	
 }

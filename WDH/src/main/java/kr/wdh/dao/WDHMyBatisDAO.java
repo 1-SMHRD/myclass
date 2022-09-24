@@ -36,6 +36,13 @@ public class WDHMyBatisDAO {
 			session.close();
 			return mvo;
 		}
+
+		// 여행지, 숙소 TOP 12 가져오기(main page)
+		public List<RankingVO> RakingList() {
+			SqlSession session = sqlSessionFactory.openSession();
+			// TODO Auto-generated method stub
+			return null;
+		}
 		
 		
 	
