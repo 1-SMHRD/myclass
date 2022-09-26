@@ -29,7 +29,7 @@ public class MyController implements Controller {
 		
 		
 	
-		return "my.do";
+		return "my";
 	}
 	
 }

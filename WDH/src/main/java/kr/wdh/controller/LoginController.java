@@ -33,7 +33,7 @@ public class LoginController implements Controller {
 			session.setAttribute("mvo", mvo);
 			return "redirect:/main.do";
 		}else {
-			return "redirect:/signin";
+			return "signin";
 		}
 	
 	}

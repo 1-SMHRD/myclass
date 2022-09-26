@@ -12,7 +12,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <!--css plugin  -->
-<link type="text/css" rel="stylesheet" href="css/signin.css">
+<link type="text/css" rel="stylesheet" href="${cpath}/css/signin.css">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 
@@ -71,7 +71,7 @@
 
 
 		<div class="form-container sign-in-container">
-			<form action="${cpath}/login.do">
+			<form action="${cpath}/signup.do">
 				<h1>Sign in</h1>
 				<span>or use your account</span> 
 				<input type="email"	placeholder="Email" name="in_mem_id" /> 
@@ -119,8 +119,8 @@
 		});
 	</script>
 	<!-- jQuery Plugins -->
-	<script src="js/signin.js"></script>
-	<script src="js/jquery.min.js"></script>
+	<script src="${cpath}/wdh/js/signin.js"></script>
+	<script src="${cpath}/wdh/js/jquery.min.js"></script>
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </body>
 </html>
