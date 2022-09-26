@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
-import kr.wdh.dao.MemberVO;
 import kr.wdh.dao.RankingVO;
 import kr.wdh.dao.StayVO;
 import kr.wdh.dao.TempStayVO;
@@ -22,10 +21,10 @@ public class MainController implements Controller {
 			throws ServletException, IOException {
 //		로직 구현 공간
 	
-		
 		WDHMyBatisDAO dao =new WDHMyBatisDAO();
 		List<RankingVO> list = dao.RakingList();
 
+//		객체 바인딩
 		request.setAttribute("list", list);
 		return "main";
 	}
