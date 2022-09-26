@@ -46,7 +46,24 @@ public class WDHMyBatisDAO {
 			return mvo;
 		}
 		
+		//staydetail
 		
+		public StayVO getByStay_id(String stay_id) {
+			SqlSession session = sqlSessionFactory.openSession();
+			StayVO vo =session.selectOne("getByStay_id",stay_id);
+			session.close();
+			return vo;
+		}
+		
+		//stayList
+		
+		public List<StayVO> stayList() {
+			SqlSession session = sqlSessionFactory.openSession();
+			
+			List<StayVO> list = session.selectList("stayList");
+			session.close(); // 세션 반납 !반드시 close()해야 오류가 안난다 
+			return list;
+		}
 	
 	
 	//숙소 정보 10개 가져오기(배열) 미완성

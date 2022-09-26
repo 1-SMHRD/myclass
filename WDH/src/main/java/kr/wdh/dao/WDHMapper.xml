@@ -10,6 +10,21 @@
 		select * from member_info where mem_Id=#{mem_Id} and mem_Pw=#{mem_Pw}
 	</select>
 	
+	<!-- detailstay -->
+	
+	<select id="getByStay_id" 
+	parameterType="kr.wdh.dao.StayVO" 
+	resultType="kr.wdh.dao.StayVO">
+		select * from stay_info where stay_id=#{stay_id}
+	</select>
+	
+	
+	<!-- stay list -->
+	<select id="stayList" 
+	parameterType="kr.wdh.dao.StayVO" 
+	resultType="kr.wdh.dao.StayVO">
+		select * from stay_info order by stay_id desc
+	</select>
 	
 		<!-- 회원가입시 인서트 -->
 	<insert id="signUp" parameterType="kr.wdh.dao.MemberVO">

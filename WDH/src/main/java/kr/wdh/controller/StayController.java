@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
 import kr.wdh.dao.MemberVO;
 import kr.wdh.dao.StayVO;
 import kr.wdh.dao.TempStayVO;
@@ -20,6 +19,9 @@ public class StayController implements Controller {
 	public String requestHandler(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 //		로직 구현 공간
+		WDHMyBatisDAO dao =new WDHMyBatisDAO();
+		List<StayVO> list=dao.stayList();
+		request.setAttribute("list", list);
 	
 		
 
@@ -29,7 +31,7 @@ public class StayController implements Controller {
 		
 		
 	
-		return "Stay.do";
+		return "Stay";
 	}
 	
 }
