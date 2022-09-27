@@ -89,7 +89,7 @@ public class WDHMyBatisDAO {
 			session.close(); // 세션 반납 !반드시 close()해야 오류가 안난다 
 			return list;
 		}
-	
+		
 	
 	//숙소 정보 10개 가져오기(배열) 미완성
 //	public List<TempStayVO> TempstayList_main() {

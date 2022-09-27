@@ -45,7 +45,6 @@
 	
 	
 	
-	
 		<!-- 회원가입시 인서트 -->
 	<insert id="signUp" parameterType="kr.wdh.dao.MemberVO">
 	 insert into member_info(mem_Id, mem_pw, mem_nick, mem_pohone, mem_joindate) values(#{mem_Id},#{mem_Pw},#{mem_nick},#{mem_pohone},sysdate) <!--  ? >> 파라메터 매겨변수를 #{}로 표시-->

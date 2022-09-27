@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 
 import kr.wdh.dao.MemberVO;
+import kr.wdh.dao.PlaceReviewVO;
 import kr.wdh.dao.PlaceVO;
 import kr.wdh.dao.StayVO;
 import kr.wdh.dao.TempStayVO;
@@ -33,9 +34,7 @@ public class PlaceDetailController implements Controller {
 		System.out.println(mvo.toString());
 		
 
-		request.setAttribute("mvo", mvo);
-		
-		
+		request.setAttribute("Place_mvo", mvo);
 		
 		
 	
