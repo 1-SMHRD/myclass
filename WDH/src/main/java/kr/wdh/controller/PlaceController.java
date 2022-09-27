@@ -29,7 +29,7 @@ public class PlaceController implements Controller {
 		
 		
 	
-		return "place.do";
+		return "placeList";
 	}
 	
 }
