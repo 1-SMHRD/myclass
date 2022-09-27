@@ -18,13 +18,33 @@
 		select * from stay_info where stay_id=#{stay_id}
 	</select>
 	
+		<!-- place list -->
+	<select id="place_allList"	parameterType="kr.wdh.dao.PlaceVO"	resultType="kr.wdh.dao.PlaceVO">
 	
-	<!-- stay list -->
-	<select id="stayList" 
-	parameterType="kr.wdh.dao.StayVO" 
-	resultType="kr.wdh.dao.StayVO">
-		select * from stay_info order by stay_id desc
+		select * from place_info
 	</select>
+	<!-- detail select -->
+	<select id="getbyplace_no" parameterType="kr.wdh.dao.PlaceVO" resultType="kr.wdh.dao.PlaceVO">
+		select * from Place_info where place_no = #{place_no}
+	</select>
+	
+	<select id="getbyaddr1_place_List"	parameterType="kr.wdh.dao.PlaceVO"	resultType="kr.wdh.dao.PlaceVO">
+	
+		select place_no, place_name, place_type, latitude , longitude, place_addr_1, 
+		place_addr_2, place_addr_3, place_img1, NVL(place_rating_avg,3) 
+		from place_info where place_addr_1= #{place_addr_1}
+	</select>
+	
+		<select id="getbyaddr2_place_List"	parameterType="kr.wdh.dao.PlaceVO"	resultType="kr.wdh.dao.PlaceVO">
+	
+		select place_no, place_name, place_type, latitude , longitude, place_addr_1, place_addr_2, place_addr_3, place_img1, NVL(place_rating_avg, 3) from place_info where place_addr_1= #{place_addr_1} and place_addr_2=#{place_addr_2}
+	</select>
+	
+	
+	
+	
+	
+	
 	
 		<!-- 회원가입시 인서트 -->
 	<insert id="signUp" parameterType="kr.wdh.dao.MemberVO">

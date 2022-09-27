@@ -119,8 +119,8 @@
 		});
 	</script>
 	<!-- jQuery Plugins -->
-	<script src="${cpath}/wdh/js/signin.js"></script>
-	<script src="${cpath}/wdh/js/jquery.min.js"></script>
+	<script src="${cpath}/js/signin.js"></script>
+	<script src="${cpath}/js/jquery.min.js"></script>
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </body>
 </html>

@@ -45,6 +45,10 @@ public class PlaceVO {
 		this.place_date = place_date;
 	}
 
+	public PlaceVO() {
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public String toString() {
 		return "PlaceVO [place_no=" + place_no + ", place_name=" + place_name + ", place_type=" + place_type

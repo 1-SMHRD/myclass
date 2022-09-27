@@ -11,7 +11,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import kr.wdh.dao.MemberVO;
 
 public class WDHMyBatisDAO {
 	private static SqlSessionFactory sqlSessionFactory;
@@ -42,6 +41,32 @@ public class WDHMyBatisDAO {
 		public MemberVO memberLogin(MemberVO vo){
 			SqlSession session = sqlSessionFactory.openSession();
 			MemberVO mvo = session.selectOne("memberLogin", vo);
+			session.close();
+			return mvo;
+		}
+		//place_allList
+		public List<PlaceVO> place_allList() {
+			SqlSession session = sqlSessionFactory.openSession();
+			List<PlaceVO> place_List = session.selectList("place_allList");
+			session.close(); // 세션 반납 !반드시 close()해야 오류가 안난다 
+			return place_List;
+		}
+		
+		public List<PlaceVO> getbyaddr1_place_List(PlaceVO vo) {
+			SqlSession session = sqlSessionFactory.openSession();
+			List<PlaceVO> place_List = session.selectList("getbyaddr1_place_List", vo);
+			session.close(); // 세션 반납 !반드시 close()해야 오류가 안난다 
+			return place_List;
+		}
+		public List<PlaceVO> getbyaddr2_place_List(PlaceVO vo) {
+			SqlSession session = sqlSessionFactory.openSession();
+			List<PlaceVO> place_List = session.selectList("getbyaddr2_place_List",vo);
+			session.close(); // 세션 반납 !반드시 close()해야 오류가 안난다 
+			return place_List;
+		}
+		public PlaceVO getbyplace_no(PlaceVO vo){
+			SqlSession session = sqlSessionFactory.openSession();
+			PlaceVO mvo = session.selectOne("getbyplace_no", vo);
 			session.close();
 			return mvo;
 		}

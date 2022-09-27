@@ -36,7 +36,7 @@ import kr.wdh.controller.StayDatailController;
 		mappings.put("/preference.do",new PreferenceController());
 		mappings.put("/recommand.do",new RecommandController());
 		mappings.put("/place.do",new PlaceController());
-		mappings.put("/placedetail.do",new PlaceDetailController());
+		mappings.put("/placedetail.do", new PlaceDetailController());
 		mappings.put("/stay.do",new StayController());
 		mappings.put("/staydetail.do",new StayDatailController());
 		
