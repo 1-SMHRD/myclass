@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.wdh.dao.WDHMapper">
+	<!-- 로그인하기  -->
+	<select id="memberLogin" 
+	parameterType="kr.wdh.dao.MemberVO" 
+	resultType="kr.wdh.dao.MemberVO">
+		select * from member_info where mem_Id=#{mem_Id} and mem_Pw=#{mem_Pw}
+	</select>
+	
+		<!-- 숙소상세페이지리뷰리스트-->
+	<select id="reviewlist" parameterType="kr.wdh.dao.PlaceReviewVO" resultType="kr.wdh.dao.PlaceReviewVO">
+	select * from (select * from place_review_info order by place_review_date desc) where place_no = #{place_no} and rownum <![CDATA[<=]]> 10
+	</select>
+	<!-- detailstay -->
+	
+	<select id="getByStay_id" 
+	parameterType="kr.wdh.dao.StayVO" 
+	resultType="kr.wdh.dao.StayVO">
+		select * from stay_info where stay_id=#{stay_id}
+	</select>
+	
+		<!-- place list -->
+	<select id="place_allList"	parameterType="kr.wdh.dao.PlaceVO"	resultType="kr.wdh.dao.PlaceVO">
+	
+		select * from place_info
+	</select>
+	<!-- detail select -->
+	<select id="getbyplace_no" parameterType="kr.wdh.dao.PlaceVO" resultType="kr.wdh.dao.PlaceVO">
+		select * from Place_info where place_no = #{place_no}
+	</select>
+	
+	<select id="getbyaddr1_place_List"	parameterType="kr.wdh.dao.PlaceVO"	resultType="kr.wdh.dao.PlaceVO">
+	
+		select * from place_info where place_addr_1 = #{place_addr_1}
+	</select>
+	
+		<select id="getbyaddr2_place_List"	parameterType="kr.wdh.dao.PlaceVO"	resultType="kr.wdh.dao.PlaceVO">
+	
+		select place_no, place_name, place_type, latitude , longitude, place_addr_1, place_addr_2, place_addr_3, place_img1, NVL(placeratingavg, 3) from place_info where place_addr_1= #{place_addr_1} and place_addr_2=#{place_addr_2}
+	</select>
+	
+	
+	
+	<!-- 회원정보 업데이트  -->
+	<update id="Update" parameterType="kr.wdh.dao.MemberVO">
+		update member_info set mem_Pw = #{mem_Pw},mem_phone=#{mem_phone} where mem_Id = #{mem_Id}
+		</update>
+	<!-- 메인화면 인기여행지 출력  -->
+	<select id = "listPlace" resultType="kr.wdh.dao.PlaceVO">
+	select * from place_info 
+	</select>
+	
+	
+		<!-- 회원가입시 인서트 -->
+	<insert id="signUp" parameterType="kr.wdh.dao.MemberVO" useGeneratedKeys="true">
+	 insert into member_info(mem_no, mem_Id, mem_pw, mem_nick, mem_phone, mem_joindate) values(memberno_seq.nextval, #{mem_Id},#{mem_Pw},#{mem_nick},#{mem_phone},sysdate) <!--  ? >> 파라메터 매겨변수를 #{}로 표시-->
+	</insert>
+	
+<!-- 임시용  스테이 메인 -->	
+	<select id="listStay" resultType="kr.wdh.dao.StayVO">
+		select * from stay_info 
+	</select>
+
+	<!-- 우앵 -->
+	<select id="recListPlace" resultType="kr.wdh.dao.PlaceVO">
+	select * from place_info where place_no in (79,95,24,185,19)
+	</select>
+	
+	<!-- 리뷰입력 -->
+	<insert id="reviewWrite" parameterType="kr.wdh.dao.PlaceReviewVO" useGeneratedKeys="true">
+	 insert into place_review_info(place_review_no, mem_no, place_no, mem_Id, place_review_title, place_review_content, place_rating, place_review_date) 
+values(reviewno_seq.nextval, #{mem_no},#{place_no}, #{mem_id} ,#{place_review_title}, #{place_review_content}, #{place_rating}, sysdate)
+	</insert>
+	
+	
+	
+	
+	
+	
+	
+
+</mapper>
